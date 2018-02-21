@@ -4,6 +4,7 @@ def opening
   puts "2) Test all combinations of a word"
   puts "3) Alphabeticalize it"
   puts "4) Uppercase first letter"
+  puts "5) What's the longest word?"
   puts ""
   response = gets.to_i
   case response
@@ -15,6 +16,8 @@ def opening
     alphabeticalize
   when 4
     uppercase
+  when 5
+    longest
   else
     exit
   end
@@ -61,4 +64,16 @@ def uppercase
   puts ''
   opening
 end
+
+def longest
+  print `clear`
+  puts "Type away"
+  answer = gets.strip.split
+  puts answer.sort_by!(&:length).pop
+  puts ""
+  opening
+end
+
+
+
 opening
