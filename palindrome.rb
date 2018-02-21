@@ -9,6 +9,7 @@ def opening
   puts "5) What's the longest word?"
   puts "6) How many vowels?"
   puts "7) Is it prime?"
+  puts "8) How man of a letter?"
   puts ""
   response = gets.to_i
   case response
@@ -26,6 +27,8 @@ def opening
     vowels
   when 7
     prime
+  when 8
+    muymucho
   else
     exit
   end
@@ -96,6 +99,17 @@ def prime
   answer = gets.to_i
   puts Prime.prime?(answer)
   puts ''
+  opening
+end
+
+def muymucho
+  print `clear`
+  puts "Which Character?"
+  which = gets.downcase
+  puts "Type the sentence"
+  answer = gets.downcase.scan(/[#{which}]/).count
+  puts answer-1
+  puts ""
   opening
 end
 
