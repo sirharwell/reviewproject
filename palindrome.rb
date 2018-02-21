@@ -1,3 +1,5 @@
+require 'prime'
+
 def opening
   puts "What would you like to do?"
   puts "1) Test a palindrome"
@@ -5,6 +7,8 @@ def opening
   puts "3) Alphabeticalize it"
   puts "4) Uppercase first letter"
   puts "5) What's the longest word?"
+  puts "6) How many vowels?"
+  puts "7) Is it prime?"
   puts ""
   response = gets.to_i
   case response
@@ -18,6 +22,10 @@ def opening
     uppercase
   when 5
     longest
+  when 6
+    vowels
+  when 7
+    prime
   else
     exit
   end
@@ -74,6 +82,21 @@ def longest
   opening
 end
 
+def vowels
+  print `clear`
+  puts "Type away"
+  answer = gets.downcase.scan(/[aeiou]/).count
+  puts answer
+  opening
+end
 
+def prime
+  print `clear`
+  puts "Type away"
+  answer = gets.to_i
+  puts Prime.prime?(answer)
+  puts ''
+  opening
+end
 
 opening
