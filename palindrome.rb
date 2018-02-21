@@ -3,6 +3,7 @@ def opening
   puts "1) Test a palindrome"
   puts "2) Test all combinations of a word"
   puts "3) Alphabeticalize it"
+  puts "4) Uppercase first letter"
   puts ""
   response = gets.to_i
   case response
@@ -12,6 +13,8 @@ def opening
     combos
   when 3
     alphabeticalize
+  when 4
+    uppercase
   else
     exit
   end
@@ -50,4 +53,12 @@ def alphabeticalize
   opening
 end
 
+def uppercase
+  print `clear`
+  puts "Type away"
+  answer = gets.strip
+  puts answer.split(' ').map {|w| w.capitalize }.join(' ')
+  puts ''
+  opening
+end
 opening
