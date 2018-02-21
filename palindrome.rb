@@ -1,7 +1,8 @@
 def opening
-  puts "What would you like to do today?"
+  puts "What would you like to do?"
   puts "1) Test a palindrome"
-  puts "2) Test all combos"
+  puts "2) Test all combinations of a word"
+  puts "3) Alphabeticalize it"
   puts ""
   response = gets.to_i
   case response
@@ -9,8 +10,10 @@ def opening
     palindrome
   when 2
     combos
+  when 3
+    alphabeticalize
   else
-    opening
+    exit
   end
 end
 
@@ -25,6 +28,7 @@ def palindrome
   else
     puts "Boo! You Fail!"
   end
+  puts ""
  opening
 end
 
@@ -33,6 +37,16 @@ def combos
   puts "Type something to get all possible combos"
   answer = gets.strip.downcase.scan /\w/
   puts answer.permutation.map(&:join)
+  puts ""
+  opening
+end
+
+def alphabeticalize
+  print `clear`
+  puts "Type away"
+  answer = gets.strip.downcase.scan /\w/
+  puts answer.sort.join
+  puts ''
   opening
 end
 
