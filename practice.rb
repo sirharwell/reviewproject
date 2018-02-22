@@ -10,6 +10,7 @@ def opening
   puts "6) How many vowels?"
   puts "7) Is it prime?"
   puts "8) How man of a letter?"
+  puts "9) FizzBuzz"
   puts ""
   response = gets.to_i
   case response
@@ -29,6 +30,8 @@ def opening
     prime
   when 8
     muymucho
+  when 9
+    fizzbuzz
   else
     exit
   end
@@ -90,6 +93,7 @@ def vowels
   puts "Type away"
   answer = gets.downcase.scan(/[aeiou]/).count
   puts answer
+  puts ''
   opening
 end
 
@@ -112,5 +116,29 @@ def muymucho
   puts ""
   opening
 end
+
+def fizzbuzz
+  print `clear`
+  puts 'Pick a number between one and a hundred'
+  a = gets.to_i
+  if a <= 100 && a >= 1
+    if a % 3 == 0 && a % 5 == 0
+      puts 'FIZZBUZZ'
+    elsif a % 5 == 0
+      puts 'BUZZ'
+    elsif a % 3 == 0
+      puts 'FIZZ'
+    else
+      puts "nope"
+    end
+  else
+    puts ''
+    opening
+  end
+  puts ''
+  opening
+end
+
+
 
 opening
